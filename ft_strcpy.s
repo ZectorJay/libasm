@@ -1,17 +1,18 @@
 global _ft_strcpy
 
 section .text
-	extern _ft_strlen
 
 _ft_strcpy:
-		cmp rdi, rsi
-		jl lesser
-		jmp bigger
-bigger:
-		mov rax, rdi
-		jmp finish
-lesser:
-		mov rax, rsi
-		jmp finish
-finish:
+		mov		rax, -1					; using rax as counter, set start value to -1
+		cmp		rsi, 0					; protect from no rsi
+		jnz		while					; start cicle if rsi exist
+		inc		rax						; if rsi dont exist we set rax to 0
+		ret								; ret (0)
+while:
+		inc		rax						; rax++
+		mov		cl, byte [rsi + rax]	; copy symbol from rsi[rax] to cl
+		mov		byte [rdi + rax], cl	; copy symbol from cl to rdi[rax]
+		cmp		cl, 0					; checking that cl still contain symbols (not 0)
+		jne		while					; if cl is not 0, start cicle again
+		mov		rax, rdi				; put dest to rax (return)
 		ret

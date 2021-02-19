@@ -6,7 +6,7 @@
 #    By: hmickey <hmickey@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/18 16:28:35 by hmickey           #+#    #+#              #
-#    Updated: 2021/02/18 17:06:10 by hmickey          ###   ########.fr        #
+#    Updated: 2021/02/19 16:27:21 by hmickey          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,9 @@ NAME		=	libasm.a
 INCLUDE		=	libasm.h
 
 SRCS		=	ft_strcpy.s\
-				ft_strlen.s
+				ft_strlen.s\
+				ft_strcmp.s\
+				ft_write.s\
 
 OBJS		= ${SRCS:.s=.o}
 
