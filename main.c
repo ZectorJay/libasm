@@ -42,12 +42,21 @@ void	check_ft_strlen(void)
 	printf("ft_strlen - %d\n", len);
 }
 
+#include <fcntl.h>
+
 int main()
 {
 	int k;
 	check_ft_strcmp();
 	check_ft_strcpy();
 	check_ft_strlen();
-	printf("%s\n", test());
+	k = ft_write(0, "using write", 11);
+	printf("\nk = %d\n", k);
+	k = ft_write(-1, "using write", 11);
+	printf("\nk = %d\n", k);
+	int fd = open("ft_read.s", O_RDONLY);
+	char u;
+	ft_read(fd, &u, 1);
+	printf("bla bla bla = %c\n", u);
 	return (0);
 }

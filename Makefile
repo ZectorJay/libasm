@@ -6,7 +6,7 @@
 #    By: hmickey <hmickey@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/18 16:28:35 by hmickey           #+#    #+#              #
-#    Updated: 2021/02/20 18:32:08 by hmickey          ###   ########.fr        #
+#    Updated: 2021/02/21 00:17:07 by hmickey          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ SRCS		=	ft_strcpy.s\
 				ft_strcmp.s\
 				ft_write.s\
 				test.s\
+				ft_read.s\
 
 OBJS		= ${SRCS:.s=.o}
 

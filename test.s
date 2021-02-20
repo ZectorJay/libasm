@@ -1,10 +1,15 @@
 global _test
 
 section .data
-		test_string		db "test string"
-
+		test_string		db "segf"
+		working			db "working"
 section .text
 
 _test:
-		mov				rax, test_string
+		test			edi, edi
+		js				fail
+		mov				rax, working
+		ret
+fail:
+		mov				rax, 0
 		ret
