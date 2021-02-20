@@ -1,10 +1,10 @@
 global _test
 
 section .data
-		pizda	db "test string"
+		test_string		db "test string"
 
 section .text
 
 _test:
-		mov		rax, pizda
+		mov				rax, test_string
 		ret
