@@ -48,5 +48,6 @@ int main()
 	check_ft_strcmp();
 	check_ft_strcpy();
 	check_ft_strlen();
+	printf("%s\n", test());
 	return (0);
 }
