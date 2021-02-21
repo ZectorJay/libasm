@@ -10,8 +10,8 @@ _ft_write:							;	rdi = fd, rsi = const void *str, rdx = len
 		jc		error				; in case of error syscall will set -1 to rdx (or 0 in case of success)
 		ret
 error:
-		push	rax
-		call	___error
-		pop		qword [rax]
-		mov		rax, -1
+		push	rax					;	save rax value on stack
+		call	___error			;	in case of error its return error_number
+		pop		qword [rax]			;	pull 64-bit rax from stack
+		mov		rax, -1				;	set value to -1
 		ret

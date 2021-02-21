@@ -1,10 +1,19 @@
-/*
-** nasm -f macho64 ft_strlen.s && gcc -o exec main.c ft_strlen.o && ./exec  
-*/
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hmickey <hmickey@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/02/21 17:13:02 by hmickey           #+#    #+#             */
+/*   Updated: 2021/02/21 17:13:04 by hmickey          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include <stdio.h>
 #include "libasm.h"
 #include <stdlib.h>
+#include <fcntl.h>
 
 void	check_ft_strcmp(void)
 {
@@ -42,21 +51,42 @@ void	check_ft_strlen(void)
 	printf("ft_strlen - %d\n", len);
 }
 
-#include <fcntl.h>
+void	check_read(void)
+{
+	int fd;
+	char u[50];
 
-int main()
+	fd = open("ft_read.s", O_RDONLY);
+	ft_read(fd, u, 5);
+	printf("______________read____________\n%s\n______________________________\n", u);
+}
+
+void	check_write(void)
 {
 	int k;
-	check_ft_strcmp();
-	check_ft_strcpy();
-	check_ft_strlen();
+	printf("\n~~~~~~~~~~~~~~write~~~~~~~~~~~~~~\n");
 	k = ft_write(0, "using write", 11);
 	printf("\nk = %d\n", k);
 	k = ft_write(-1, "using write", 11);
-	printf("\nk = %d\n", k);
-	int fd = open("ft_read.s", O_RDONLY);
-	char u;
-	ft_read(fd, &u, 1);
-	printf("bla bla bla = %c\n", u);
+	printf("\nk = %d", k);
+	printf("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+}
+
+char	*check_ft_strdup(char *a)
+{
+	ft_strdup(a);
+	return (a);	
+}
+
+int main()
+{
+	char	*new;
+	check_ft_strcmp();
+	check_ft_strcpy();
+	check_ft_strlen();
+	check_read();
+	check_write();
+	new = check_ft_strdup("123");
+	printf("new string - %s\n", new);
 	return (0);
 }
