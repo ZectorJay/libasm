@@ -4,6 +4,10 @@ section .text
 
 _ft_strlen: 
 		mov	rax, -1					; counter = -1
+		cmp	rdi, 0
+		jne while
+		mov	rax, 0
+		ret
 while:
 		inc rax						; counter++
 		mov cl, byte [rdi + rax]	; shifting string (pointer) on next byte. cl = 8 bit (1 byte), thats 1 symbol

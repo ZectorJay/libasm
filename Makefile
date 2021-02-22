@@ -6,7 +6,7 @@
 #    By: hmickey <hmickey@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/18 16:28:35 by hmickey           #+#    #+#              #
-#    Updated: 2021/02/21 16:02:33 by hmickey          ###   ########.fr        #
+#    Updated: 2021/02/21 17:16:20 by hmickey          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,6 +44,6 @@ clean:
 				${RM} ${OBJS}
 
 fclean:			clean
-				${RM} ${NAME}
+				${RM} ${NAME} a.out
 
 re:				fclean all
